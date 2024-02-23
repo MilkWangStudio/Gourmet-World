@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  gourmet-server:
+    build:
+      context: ./gourmet-server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    networks:
+      - gourmet-network
+
+  gourmet-web:
+    build:
+      context: ./gourmet-web
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - gourmet-server
+    networks:
+      - gourmet-network
+
+networks:
+  gourmet-network:
+    driver: bridge

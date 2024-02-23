@@ -1,0 +1,14 @@
+gourmet:
+  repo-type: csv
+  csv-location: classpath:Mobile_Food_Facility_Permit.csv
+server:
+  servlet:
+    context-path: /api
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+      username:
+      password:
